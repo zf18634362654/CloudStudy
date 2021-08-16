@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: cloud-stream-binder-consumer
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 1.15.41.168
+          zkNodes: 1.15.41.168
+
+      bindings:
+        input:
+          destination: stream.message
+
+        my_input:
+          destination: mystream.message
+
+        source:
+          destination: source.message
+
+      binders:
+        kafka:
+          type: kafka
+          environment:
+            spring:
+              kafka:
+                host: 1.15.41.168
+server:
+  port: 8081
